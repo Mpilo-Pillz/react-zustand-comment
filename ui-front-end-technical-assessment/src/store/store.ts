@@ -2,6 +2,8 @@ import create from "zustand";
 
 const useStore = create<any>((set) => ({
   comments: [],
+  orgName: "fsociety",
+  setOrgName: (orgName: string) => set({ orgName }),
   getComments: async (url: string) => {
     const res = await fetch(url);
     set({ comments: await res.json() });
