@@ -2,6 +2,7 @@ import create from "zustand";
 
 const useStore = create<any>((set) => ({
   comments: [],
+  members: [],
   orgName: "fsociety",
   setOrgName: (orgName: string) => set({ orgName }),
   getComments: async (url: string) => {
@@ -24,6 +25,10 @@ const useStore = create<any>((set) => ({
       },
       body: JSON.stringify(body),
     });
+  },
+  getMembers: async (url: string) => {
+    const res = await fetch(url);
+    set({ members: await res.json() });
   },
 }));
 
