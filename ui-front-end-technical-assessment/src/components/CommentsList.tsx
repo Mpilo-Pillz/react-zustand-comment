@@ -7,9 +7,10 @@ const CommentsList = () => {
   const comments = useStore((state) => state.comments);
   const getComments = useStore((state) => state.getComments);
   const deleteComments = useStore((state) => state.deleteComments);
+  const orgName = useStore((state) => state.orgName);
 
   useEffect(() => {
-    getComments("http://localhost:1337/orgs/fsociety/comments");
+    getComments(`http://localhost:1337/orgs/${orgName}/comments`);
   }, []);
   return (
     <>
@@ -19,7 +20,7 @@ const CommentsList = () => {
         buttonType="button"
         dataTestId={`delete`}
         onClick={(e) => {
-          deleteComments(`http://localhost:1337/orgs/fsociety/comments`);
+          deleteComments(`http://localhost:1337/orgs/${orgName}/comments`);
         }}
       />
       <ul>
