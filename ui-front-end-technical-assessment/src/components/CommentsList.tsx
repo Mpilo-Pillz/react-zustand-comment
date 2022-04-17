@@ -23,13 +23,12 @@ const CommentsList = () => {
           deleteComments(`http://localhost:1337/orgs/${orgName}/comments`);
         }}
       />
-      <ul>
-        {comments.map((comment: Comment) => (
-          <li key={comment._id}>
-            <span>{comment.comment}</span>
-          </li>
-        ))}
-      </ul>
+
+      {comments.map((comment: Comment) => (
+        <div key={comment._id}>
+          <span>{comment.comment}</span>
+        </div>
+      ))}
     </>
   );
 };

@@ -12,9 +12,9 @@ const MembersLists = () => {
   }, [orgName]);
 
   return (
-    <ul>
+    <section className="flex-layout">
       {members.map((member: any) => (
-        <li key={member._id}>
+        <div key={member._id} className="margin-sm">
           <MemberCard
             imgAltText={member.avatar}
             cardDescription={member.org}
@@ -23,9 +23,9 @@ const MembersLists = () => {
             numOfFollowers={member.followers}
             numOfFollowing={member.following}
           />
-        </li>
+        </div>
       ))}
-    </ul>
+    </section>
   );
 };
 
