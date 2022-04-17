@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useStore from "../store/store";
+import MemberCard from "./MemberCard";
 
 const MembersLists = () => {
   const members = useStore((state) => state.members);
@@ -14,11 +15,14 @@ const MembersLists = () => {
     <ul>
       {members.map((member: any) => (
         <li key={member._id}>
-          <span>{member.email}</span>
-          <img src={member.avatar} alt={member.email} />
-          <span>{member.followers}</span>
-          <span>{member.following}</span>
-          <span>{member.org}</span>
+          <MemberCard
+            imgAltText={member.avatar}
+            cardDescription={member.org}
+            cardTitle={member.email}
+            imgUrl={member.avatar}
+            numOfFollowers={member.followers}
+            numOfFollowing={member.following}
+          />
         </li>
       ))}
     </ul>
