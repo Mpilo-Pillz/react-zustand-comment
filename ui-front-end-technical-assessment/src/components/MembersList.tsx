@@ -8,7 +8,7 @@ const MembersLists = () => {
   const orgName = useStore((state) => state.orgName);
 
   useEffect(() => {
-    getMembers(`http://localhost:1337/orgs/${orgName}/members`);
+    getMembers(`${orgName}/members`);
   }, [orgName]);
 
   return (

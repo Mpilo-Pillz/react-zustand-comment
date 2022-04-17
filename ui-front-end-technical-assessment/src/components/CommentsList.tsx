@@ -1,7 +1,8 @@
+import { List } from "antd";
 import { useEffect } from "react";
 import useStore from "../store/store";
 import { Comment } from "../types/types";
-import Button from "./formComponents/Button";
+import ButtonInput from "./formComponents/Button";
 
 const CommentsList = () => {
   const comments = useStore((state) => state.comments);
@@ -10,25 +11,29 @@ const CommentsList = () => {
   const orgName = useStore((state) => state.orgName);
 
   useEffect(() => {
-    getComments(`http://localhost:1337/orgs/${orgName}/comments`);
-  }, []);
+    getComments(`${orgName}/comments`);
+  }, [orgName, deleteComments]);
   return (
     <>
-      <Button
+      <ButtonInput
         buttonText="Delete All Comments"
         isDisabled={false}
         buttonType="button"
         dataTestId={`delete`}
+        buttonClass="btn-outline"
         onClick={(e) => {
-          deleteComments(`http://localhost:1337/orgs/${orgName}/comments`);
+          deleteComments(`${orgName}/comments`);
         }}
       />
-
-      {comments.map((comment: Comment) => (
-        <div key={comment._id}>
-          <span>{comment.comment}</span>
-        </div>
-      ))}
+      <List
+        itemLayout="horizontal"
+        dataSource={comments}
+        renderItem={(comment: Comment) => (
+          <List.Item className="comment-list">
+            <List.Item.Meta title={comment.org} description={comment.comment} />
+          </List.Item>
+        )}
+      />
     </>
   );
 };

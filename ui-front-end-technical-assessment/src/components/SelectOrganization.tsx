@@ -15,7 +15,6 @@ const SelectOrganization = () => {
         />
           <label htmlFor="ecorp">ecorp</label> {" "}
         <input
-          checked
           type="radio"
           id="fsociety"
           name="orgName"

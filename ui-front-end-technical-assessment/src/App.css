@@ -1,7 +1,23 @@
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.btn {
+  border: none;
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+.btn-primary {
+  background-color: #001529;
+  color: #eff2f5;
+}
+.btn-outline {
+  background-color: #eff2f5;
+  border: solid 1px #001529;
+  color: #001529;
+}
+
+.comment-list {
+  margin: 20px;
+  /* padding: 20px; */
+  background-color: white;
 }
 
 .margin-sm {
