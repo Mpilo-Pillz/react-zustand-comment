@@ -1,4 +1,4 @@
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Typography } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import Members from "./pages/Members";
 import { Link, Route, Routes } from "react-router-dom";
@@ -9,6 +9,7 @@ import useStore from "./store/store";
 const AppLayout = () => {
   const orgName = useStore((state) => state.orgName);
   const pages = ["Comments", "Members"];
+  const { Title } = Typography;
   return (
     <Layout className="layout">
       <Header>
@@ -25,7 +26,8 @@ const AppLayout = () => {
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>
-        <h1>{orgName}</h1>
+        <SelectOrganization />
+        <Title>{orgName.toUpperCase()}</Title>
         <Routes>
           <Route path="/" element={<SelectOrganization />} />
           <Route path="/comments" element={<Comments />} />

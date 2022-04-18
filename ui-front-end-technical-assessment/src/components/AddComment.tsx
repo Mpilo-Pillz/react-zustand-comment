@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import Button from "./formComponents/Button";
+import ButtonInput from "./formComponents/Button";
 import useAddComment from "./formComponents/formHooks/useAddComment";
 import TextInput from "./formComponents/TextInput";
 
@@ -10,7 +10,10 @@ const AddComment = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleSubmit(values)}
+      onSubmit={(values, { resetForm }) => {
+        handleSubmit(values);
+        resetForm({});
+      }}
     >
       {(formikProps) => {
         return (
@@ -19,13 +22,14 @@ const AddComment = () => {
               dataTestId="add-comment"
               name="comment"
               type="text"
-              placeholder="Addd a new Comment"
+              placeholder="Add a new Comment"
             />
-            <Button
+            <ButtonInput
               buttonText="Post Comment"
               isDisabled={!formikProps.isValid}
               buttonType="submit"
               dataTestId="post-comment-button"
+              buttonClass="btn-primary"
             />
           </Form>
         );

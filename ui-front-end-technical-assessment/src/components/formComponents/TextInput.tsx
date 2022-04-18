@@ -1,3 +1,4 @@
+import { Input } from "antd";
 import { useField } from "formik";
 import { FC, ChangeEvent, InputHTMLAttributes } from "react";
 
@@ -10,7 +11,7 @@ const TextInput: FC<
 
   return (
     <>
-      <input
+      <Input
         data-testid={dataTestId}
         type={type}
         name={field.name}

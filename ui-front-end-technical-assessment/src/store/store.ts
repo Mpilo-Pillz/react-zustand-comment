@@ -1,16 +1,24 @@
 import create from "zustand";
+import { AppStore, Member, Organization } from "../types/types";
 
-const useStore = create<any>((set) => ({
-  comments: [],
-  members: [],
-  orgName: "fsociety",
+export const apiUrl = "http://localhost:1337/orgs/";
+
+const initialState = {
+  comments: [] as Comment[],
+  members: [] as Member[],
+  orgName: "fsociety" as Organization,
+};
+
+const useStore = create<any>((set, get) => ({
+  ...initialState,
   setOrgName: (orgName: string) => set({ orgName }),
-  getComments: async (url: string) => {
-    const res = await fetch(url);
-    set({ comments: await res.json() });
-  },
+  setComments: (comments: Comment[]) =>
+    set((state: Comment[]) => ({
+      ...state,
+      comments,
+    })),
   deleteComments: async (url: string) => {
-    const res = await fetch(url, {
+    const res = await fetch(`${apiUrl}${url}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +26,7 @@ const useStore = create<any>((set) => ({
     });
   },
   createComment: async (url: string, body: any) => {
-    const res = await fetch(url, {
+    const res = await fetch(`${apiUrl}${url}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,10 +34,11 @@ const useStore = create<any>((set) => ({
       body: JSON.stringify(body),
     });
   },
-  getMembers: async (url: string) => {
-    const res = await fetch(url);
-    set({ members: await res.json() });
-  },
+  setMembers: (members: Member[]) =>
+    set((state: Member[]) => ({
+      ...state,
+      members,
+    })),
 }));
 
 export default useStore;
