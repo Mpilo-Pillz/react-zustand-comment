@@ -2,6 +2,7 @@ import { Divider, Skeleton } from "antd";
 import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import useStore, { apiUrl } from "../store/store";
+import { Member } from "../types/types";
 import ErrorCard from "./Error";
 import MemberCard from "./MemberCard";
 
@@ -39,7 +40,7 @@ const MembersLists = () => {
 
       <section className="flex-layout">
         {members &&
-          members.map((member: any) => (
+          members.map((member: Member) => (
             <div key={member._id} className="margin-sm">
               <MemberCard
                 imgAltText={member.avatar}

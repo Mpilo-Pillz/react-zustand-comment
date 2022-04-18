@@ -7,14 +7,23 @@ const ButtonInput: FC<
     buttonType: "button" | "submit" | "reset" | undefined;
     isDisabled: boolean;
     buttonClass?: string;
+    handleClick?: () => void;
   }
-> = ({ buttonText, buttonType, dataTestId, isDisabled, buttonClass }) => {
+> = ({
+  buttonText,
+  buttonType,
+  dataTestId,
+  isDisabled,
+  buttonClass,
+  handleClick,
+}) => {
   return (
     <button
       className={`btn ${buttonClass}`}
       data-testid={dataTestId}
       type={buttonType}
       disabled={isDisabled}
+      onClick={handleClick}
     >
       {buttonText}
     </button>

@@ -9,7 +9,7 @@ const initialState = {
   orgName: "fsociety" as Organization,
 };
 
-const useStore = create<any>((set, get) => ({
+const useStore = create<any>((set) => ({
   ...initialState,
   setOrgName: (orgName: string) => set({ orgName }),
   setComments: (comments: Comment[]) =>
@@ -24,8 +24,11 @@ const useStore = create<any>((set, get) => ({
         "Content-Type": "application/json",
       },
     });
+    if (res.ok) {
+      set({ comments: [] });
+    }
   },
-  createComment: async (url: string, body: any) => {
+  createComment: async (url: string, body: Comment) => {
     const res = await fetch(`${apiUrl}${url}`, {
       method: "POST",
       headers: {

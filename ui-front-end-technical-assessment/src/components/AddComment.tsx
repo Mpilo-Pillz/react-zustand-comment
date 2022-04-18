@@ -1,5 +1,5 @@
 import { Formik, Form } from "formik";
-import ButtonInput from "./formComponents/Button";
+import ButtonInput from "./formComponents/ButtonInput";
 import useAddComment from "./formComponents/formHooks/useAddComment";
 import TextInput from "./formComponents/TextInput";
 
