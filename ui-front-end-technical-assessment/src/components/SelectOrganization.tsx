@@ -1,32 +1,36 @@
 import useStore from "../store/store";
+import { OrgName } from "../types/appEnums";
 
 const SelectOrganization = () => {
   const setOrgName = useStore((state) => state.setOrgName);
+  const orgName = useStore((state) => state.orgName);
   return (
     <>
       <form>
         <input
+          checked={orgName === OrgName.ECORP}
           type="radio"
-          id="ecorp"
+          id={OrgName.ECORP}
           name="orgName"
-          value="ecorp"
+          value={OrgName.ECORP}
           onChange={(e) => {
             localStorage.setItem("orgName", e.target.value);
             setOrgName(e.target.value);
           }}
         />
-          <label htmlFor="ecorp">ecorp</label> {" "}
+          <label htmlFor={OrgName.ECORP}>{OrgName.ECORP}</label> {" "}
         <input
+          checked={orgName === OrgName.FSOCIETY}
           type="radio"
-          id="fsociety"
+          id={OrgName.FSOCIETY}
           name="orgName"
-          value="fsociety"
+          value={OrgName.FSOCIETY}
           onChange={(e) => {
             localStorage.setItem("orgName", e.target.value);
             setOrgName(e.target.value);
           }}
         />
-          <label htmlFor="fsociety">fsociety</label> 
+          <label htmlFor={OrgName.FSOCIETY}>{OrgName.FSOCIETY}</label> 
       </form>
     </>
   );
