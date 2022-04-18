@@ -1,13 +1,16 @@
 import create from "zustand";
-import { Member } from "../types/types";
+import { AppStore, Member, Organization } from "../types/types";
 
 export const apiUrl = "http://localhost:1337/orgs/";
 
-const useStore = create<any>((set) => ({
-  comments: [],
-  members: [],
-  orgName: "fsociety",
-  isLoading: false,
+const initialState = {
+  comments: [] as Comment[],
+  members: [] as Member[],
+  orgName: "fsociety" as Organization,
+};
+
+const useStore = create<any>((set, get) => ({
+  ...initialState,
   setOrgName: (orgName: string) => set({ orgName }),
   setComments: (comments: Comment[]) =>
     set((state: Comment[]) => ({

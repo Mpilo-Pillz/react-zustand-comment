@@ -1,5 +1,3 @@
-import { State } from "zustand";
-
 export type Comment = {
   deleted: boolean;
   _id: string;
@@ -14,10 +12,15 @@ export type Member = {
   email: string;
   org: Organization;
 };
-export interface CommentState extends State {
+export interface AppStore {
   comments: Comment[];
-  getComments: any;
-  //   getComments: (url: string) => Promise<void>;
+  members: Member[];
+  orgName: Organization;
+  setOrgName: () => void;
+  setComments: () => void;
+  deleteComments: () => void;
+  createComment: () => void;
+  setMembers: () => void;
 }
 
 export type Organization = "fsociety" | "ecorp";

@@ -1,3 +1,6 @@
+.bg-white {
+  background-color: #fff;
+}
 .btn {
   border: none;
   margin: 10px;
@@ -15,18 +18,40 @@
 }
 
 .comment-list {
-  margin: 20px;
-  /* padding: 20px; */
   background-color: white;
+  margin: 50px auto;
+  width: 100%;
 }
 
 .margin-sm {
   margin: 10px;
 }
 
+.skeleton {
+  padding: 10px;
+}
+
+.skeleton-loading {
+  margin: 50px auto;
+  width: 100%;
+}
+
 @media only screen and (min-width: 800px) {
+  .comment-list {
+    margin: 20px auto;
+    background-color: white;
+    width: 60%;
+  }
+
   .flex-layout {
     display: flex;
     justify-content: center;
+  }
+  .skeleton-loading {
+    margin: 50px auto;
+    width: 60%;
+  }
+  .skeleton {
+    padding: 50px;
   }
 }
