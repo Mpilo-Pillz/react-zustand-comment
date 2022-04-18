@@ -4,8 +4,9 @@ import useStore from "../../../store/store";
 
 const useAddComment = () => {
   const createComment = useStore((state) => state.createComment);
-  const getComments = useStore((state) => state.getComments);
+  const setComments = useStore((state) => state.setComments);
   const orgName = useStore((state) => state.orgName);
+  const comments = useStore((state) => state.comments);
   const initialValues = useMemo(
     () => ({
       comment: "",
@@ -20,7 +21,7 @@ const useAddComment = () => {
   const handleSubmit = (newComment: { comment: string }) => {
     console.log(newComment);
     createComment(`${orgName}/comments`, newComment);
-    getComments(`${orgName}/comments`);
+    setComments([...comments, newComment]);
   };
 
   return { initialValues, validationSchema, handleSubmit };

@@ -25,7 +25,7 @@ const CommentsList = () => {
         buttonType="button"
         dataTestId={`delete`}
         buttonClass="btn-outline"
-        onClick={(e) => {
+        onClick={() => {
           deleteComments(`${orgName}/comments`);
         }}
       />

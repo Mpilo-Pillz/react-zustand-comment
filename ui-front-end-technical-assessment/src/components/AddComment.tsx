@@ -10,7 +10,10 @@ const AddComment = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values) => handleSubmit(values)}
+      onSubmit={(values, { resetForm }) => {
+        handleSubmit(values);
+        resetForm({});
+      }}
     >
       {(formikProps) => {
         return (
