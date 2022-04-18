@@ -1,4 +1,3 @@
-import { Formik, Field, Form } from "formik";
 import useStore from "../store/store";
 
 const SelectOrganization = () => {
@@ -11,7 +10,10 @@ const SelectOrganization = () => {
           id="ecorp"
           name="orgName"
           value="ecorp"
-          onChange={(e) => setOrgName(e.target.value)}
+          onChange={(e) => {
+            localStorage.setItem("orgName", e.target.value);
+            setOrgName(e.target.value);
+          }}
         />
           <label htmlFor="ecorp">ecorp</label> {" "}
         <input
@@ -19,7 +21,10 @@ const SelectOrganization = () => {
           id="fsociety"
           name="orgName"
           value="fsociety"
-          onChange={(e) => setOrgName(e.target.value)}
+          onChange={(e) => {
+            localStorage.setItem("orgName", e.target.value);
+            setOrgName(e.target.value);
+          }}
         />
           <label htmlFor="fsociety">fsociety</label> 
       </form>

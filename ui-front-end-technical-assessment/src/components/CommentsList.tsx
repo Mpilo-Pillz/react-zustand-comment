@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch";
 import useStore, { apiUrl } from "../store/store";
 import { Comment } from "../types/types";
 import ErrorCard from "./Error";
-import ButtonInput from "./formComponents/Button";
+import ButtonInput from "./formComponents/ButtonInput";
 
 const CommentsList = () => {
   const orgName = useStore((state) => state.orgName);
@@ -25,7 +25,7 @@ const CommentsList = () => {
         buttonType="button"
         dataTestId={`delete`}
         buttonClass="btn-outline"
-        onClick={() => {
+        handleClick={() => {
           deleteComments(`${orgName}/comments`);
         }}
       />
