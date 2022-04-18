@@ -6,6 +6,14 @@ export type Comment = {
   comment: string;
   org: Organization;
 };
+export type Member = {
+  avatar: string;
+  followers: number;
+  following: number;
+  _id: string;
+  email: string;
+  org: Organization;
+};
 export interface CommentState extends State {
   comments: Comment[];
   getComments: any;

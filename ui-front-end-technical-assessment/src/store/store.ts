@@ -1,18 +1,19 @@
 import create from "zustand";
+import { Member } from "../types/types";
 
-const apiUrl = "http://localhost:1337/orgs/";
+export const apiUrl = "http://localhost:1337/orgs/";
+
 const useStore = create<any>((set) => ({
   comments: [],
   members: [],
   orgName: "fsociety",
   isLoading: false,
   setOrgName: (orgName: string) => set({ orgName }),
-  getComments: async (url: string) => {
-    set({ isLoading: true });
-    const res = await fetch(`${apiUrl}${url}`);
-    set({ comments: await res.json() });
-    set({ isLoading: false });
-  },
+  setComments: (comments: Comment[]) =>
+    set((state: Comment[]) => ({
+      ...state,
+      comments,
+    })),
   deleteComments: async (url: string) => {
     const res = await fetch(`${apiUrl}${url}`, {
       method: "DELETE",
@@ -30,10 +31,11 @@ const useStore = create<any>((set) => ({
       body: JSON.stringify(body),
     });
   },
-  getMembers: async (url: string) => {
-    const res = await fetch(`${apiUrl}${url}`);
-    set({ members: await res.json() });
-  },
+  setMembers: (members: Member[]) =>
+    set((state: Member[]) => ({
+      ...state,
+      members,
+    })),
 }));
 
 export default useStore;
