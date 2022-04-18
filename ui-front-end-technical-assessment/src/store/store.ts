@@ -6,7 +6,9 @@ export const apiUrl = "http://localhost:1337/orgs/";
 const initialState = {
   comments: [] as Comment[],
   members: [] as Member[],
-  orgName: "fsociety" as Organization,
+  orgName: localStorage.getItem("orgName")
+    ? (localStorage.getItem("orgName") as Organization)
+    : ("fsociety" as Organization),
 };
 
 const useStore = create<any>((set) => ({
