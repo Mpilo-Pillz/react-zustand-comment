@@ -1,4 +1,4 @@
-import { Layout, Menu, Typography } from "antd";
+import { Divider, Layout, Menu, Typography } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import Members from "./pages/Members";
 import { NavLink, Route, Routes } from "react-router-dom";
@@ -15,18 +15,22 @@ const AppLayout = () => {
     <Layout className="layout">
       <Header>
         <div className="logo" />
-        <Menu theme="dark" mode="horizontal">
-          <NavLink to="/">
-            <Menu.Item>Comments</Menu.Item>
-          </NavLink>
-          <NavLink to="/members">
-            <Menu.Item>Members</Menu.Item>
-          </NavLink>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+          <Menu.Item key="1">
+            <NavLink to="/">Comments</NavLink>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <NavLink to="/members"></NavLink>
+            Members
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>
-        <SelectOrganization />
-        <Title>{orgName.toUpperCase()}</Title>
+        <section className="text-center">
+          <SelectOrganization />
+          <Title>{orgName.toUpperCase()}</Title>
+        </section>
+        <Divider />
         <Routes>
           <Route path="/" element={<Comments />} />
           <Route path="members" element={<Members />} />

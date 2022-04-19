@@ -6,11 +6,12 @@ const SelectOrganization = () => {
   const orgName = useStore((state) => state.orgName);
   return (
     <>
-      <form>
+      <form className="select-organization">
         <input
           checked={orgName === OrgName.ECORP}
           type="radio"
           id={OrgName.ECORP}
+          data-testid={`radio-button-${OrgName.ECORP}`}
           name="orgName"
           value={OrgName.ECORP}
           onChange={(e) => {
@@ -18,11 +19,16 @@ const SelectOrganization = () => {
             setOrgName(e.target.value);
           }}
         />
-          <label htmlFor={OrgName.ECORP}>{OrgName.ECORP}</label> {" "}
+         {" "}
+        <label className="radio-org-label" htmlFor={OrgName.ECORP}>
+          {OrgName.ECORP}
+        </label>
+         {" "}
         <input
           checked={orgName === OrgName.FSOCIETY}
           type="radio"
           id={OrgName.FSOCIETY}
+          data-testid={`radio-button-${OrgName.FSOCIETY}`}
           name="orgName"
           value={OrgName.FSOCIETY}
           onChange={(e) => {
@@ -30,7 +36,11 @@ const SelectOrganization = () => {
             setOrgName(e.target.value);
           }}
         />
-          <label htmlFor={OrgName.FSOCIETY}>{OrgName.FSOCIETY}</label> 
+         {" "}
+        <label className="radio-org-label" htmlFor={OrgName.FSOCIETY}>
+          {OrgName.FSOCIETY}
+        </label>
+         
       </form>
     </>
   );

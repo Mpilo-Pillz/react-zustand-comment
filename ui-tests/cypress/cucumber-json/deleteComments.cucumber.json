@@ -1,0 +1,133 @@
+[
+  {
+    "description": "    In order to delete posts on behalf of my company\n    As an admin\n    I want to delete all comments",
+    "keyword": "Feature",
+    "name": "Delete Comments",
+    "line": 1,
+    "id": "delete-comments",
+    "tags": [],
+    "uri": "deleteComments.feature",
+    "elements": [
+      {
+        "id": "delete-comments;delete-comments-for-fsociety",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Delete Comments for FSOCIETY",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I visit dashboard on \"http://localhost:3000/\"",
+            "result": {
+              "status": "passed",
+              "duration": 386000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I click the element with testid \"radio-button-fsociety\"",
+            "result": {
+              "status": "passed",
+              "duration": 254000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I enter \"Test adding comments\" inside \"add-comment-text-input\"",
+            "result": {
+              "status": "passed",
+              "duration": 603000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I click the element with testid \"delete-all-comments\"",
+            "result": {
+              "status": "passed",
+              "duration": 152000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see the text \"No Data\"",
+            "result": {
+              "status": "passed",
+              "duration": 58000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "delete-comments;delete-comments-for-escorp",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Delete Comments for ESCORP",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I visit dashboard on \"http://localhost:3000/\"",
+            "result": {
+              "status": "passed",
+              "duration": 295000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I click the element with testid \"radio-button-ecorp\"",
+            "result": {
+              "status": "passed",
+              "duration": 290000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I enter \"Test adding comments\" inside \"add-comment-text-input\"",
+            "result": {
+              "status": "passed",
+              "duration": 593000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "I click the element with testid \"delete-all-comments\"",
+            "result": {
+              "status": "passed",
+              "duration": 157000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "I should see the text \"No Data\"",
+            "result": {
+              "status": "passed",
+              "duration": 66000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

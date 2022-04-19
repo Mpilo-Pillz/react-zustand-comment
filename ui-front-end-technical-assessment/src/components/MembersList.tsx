@@ -38,10 +38,14 @@ const MembersLists = () => {
       </section>
       {error && <ErrorCard errorParagraph="Error getting members" />}
 
-      <section className="flex-layout">
+      <section data-testid="member-list" className="flex-layout">
         {members &&
           members.map((member: Member) => (
-            <div key={member._id} className="margin-sm">
+            <div
+              key={member._id}
+              className="margin-sm"
+              data-testid="member-list-item"
+            >
               <MemberCard
                 imgAltText={member.avatar}
                 cardDescription={member.org}

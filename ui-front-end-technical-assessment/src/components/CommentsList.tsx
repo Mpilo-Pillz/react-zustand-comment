@@ -19,16 +19,6 @@ const CommentsList = () => {
   }, [orgName, deleteComments, data]);
   return (
     <>
-      <ButtonInput
-        buttonText="Delete All Comments"
-        isDisabled={false}
-        buttonType="button"
-        dataTestId={`delete`}
-        buttonClass="btn-outline"
-        handleClick={() => {
-          deleteComments(`${orgName}/comments`);
-        }}
-      />
       <section className="skeleton-loading">
         {Array.from({ length: 5 }).map((_, index) => (
           <div key={index}>
@@ -48,20 +38,34 @@ const CommentsList = () => {
       </section>
       {error && <ErrorCard errorParagraph="Error getting comments" />}
       {comments && (
-        <List
-          itemLayout="horizontal"
-          dataSource={comments}
-          renderItem={(comment: Comment) => (
-            <List.Item className="comment-list">
-              <Meta
-                key={"index"}
-                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-                title={comment.comment}
-                description={comment.org}
-              />
-            </List.Item>
-          )}
-        />
+        <section className="section-comments">
+          <ButtonInput
+            buttonText="Delete All Comments"
+            isDisabled={false}
+            buttonType="button"
+            dataTestId={`delete-all-comments`}
+            buttonClass="btn-outline"
+            handleClick={() => {
+              deleteComments(`${orgName}/comments`);
+            }}
+          />
+
+          <List
+            data-testid="comments-list-item"
+            itemLayout="horizontal"
+            dataSource={comments}
+            renderItem={(comment: Comment) => (
+              <List.Item className="comment-list">
+                <Meta
+                  key={"index"}
+                  avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                  title={comment.comment}
+                  description={comment.org}
+                />
+              </List.Item>
+            )}
+          />
+        </section>
       )}
     </>
   );

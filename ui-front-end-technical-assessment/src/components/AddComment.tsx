@@ -17,21 +17,23 @@ const AddComment = () => {
     >
       {(formikProps) => {
         return (
-          <Form>
-            <TextInput
-              dataTestId="add-comment"
-              name="comment"
-              type="text"
-              placeholder="Add a new Comment"
-            />
-            <ButtonInput
-              buttonText="Post Comment"
-              isDisabled={!formikProps.isValid}
-              buttonType="submit"
-              dataTestId="post-comment-button"
-              buttonClass="btn-primary"
-            />
-          </Form>
+          <>
+            <Form className="add-form">
+              <TextInput
+                dataTestId="add-comment-text-input"
+                name="comment"
+                type="text"
+                placeholder="Add a new Comment"
+              />
+              <ButtonInput
+                buttonText="Post Comment"
+                isDisabled={!formikProps.isValid}
+                buttonType="submit"
+                dataTestId="post-comment-button"
+                buttonClass="btn-primary"
+              />
+            </Form>
+          </>
         );
       }}
     </Formik>

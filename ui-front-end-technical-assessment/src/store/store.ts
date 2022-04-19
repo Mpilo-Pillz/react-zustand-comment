@@ -1,5 +1,5 @@
 import create from "zustand";
-import { AppStore, Member, Organization } from "../types/types";
+import { Comment, Member, Organization } from "../types/types";
 
 export const apiUrl = "http://localhost:1337/orgs/";
 
