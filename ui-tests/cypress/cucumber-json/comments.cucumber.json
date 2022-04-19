@@ -1,0 +1,52 @@
+[
+  {
+    "description": "    In order to read omments\n    As an admin\n    I want to read comments",
+    "keyword": "Feature",
+    "name": "View Comments",
+    "line": 1,
+    "id": "view-comments",
+    "tags": [],
+    "uri": "comments.feature",
+    "elements": [
+      {
+        "id": "view-comments;read-comments-for-fsociety",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Read Comments for FSOCIETY",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I visit dashboard on \"http://localhost:3000/\"",
+            "result": {
+              "status": "passed",
+              "duration": 777000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I enter \"test@email.com\" on the element \"reset-password-email\"",
+            "result": {
+              "status": "undefined",
+              "duration": 48000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 11,
+            "name": "I click on \"reset-button\"",
+            "result": {
+              "status": "skipped"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
