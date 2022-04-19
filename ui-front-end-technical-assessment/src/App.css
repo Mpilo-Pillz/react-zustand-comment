@@ -1,3 +1,8 @@
+.add-form {
+  display: flex;
+  flex-direction: column;
+}
+
 .ant-menu.ant-menu-dark .ant-menu-item-selected {
   background-color: #001529 !important;
 }
@@ -10,7 +15,7 @@
 }
 .btn {
   border: none;
-  margin: 10px;
+  margin: 10px 0;
   padding: 10px 20px;
 }
 
@@ -18,10 +23,25 @@
   background-color: #001529;
   color: #eff2f5;
 }
+
+.btn-primary:hover {
+  background-color: #5292d2;
+  color: #fff;
+  cursor: pointer;
+}
+
 .btn-outline {
-  background-color: #eff2f5;
+  background-color: #fff;
   border: solid 1px #001529;
   color: #001529;
+  width: 100%;
+}
+
+.btn-outline:hover {
+  background-color: #ac3333;
+  border: solid 1px #ac3333;
+  color: #fff;
+  cursor: pointer;
 }
 
 .comment-list {
@@ -34,6 +54,14 @@
   margin: 10px;
 }
 
+.radio-org-label {
+  font-size: 30px;
+}
+
+.select-organization {
+  margin: 20px;
+}
+
 .skeleton {
   padding: 10px;
 }
@@ -43,7 +71,15 @@
   width: 100%;
 }
 
+.text-center {
+  text-align: center;
+}
+
 @media only screen and (min-width: 800px) {
+  .btn-outline {
+    width: auto;
+  }
+
   .comment-list {
     margin: 20px auto;
     background-color: white;
@@ -58,6 +94,7 @@
     margin: 50px auto;
     width: 60%;
   }
+
   .skeleton {
     padding: 50px;
   }
