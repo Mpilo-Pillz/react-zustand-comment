@@ -1,36 +1,33 @@
 import useStore from "../store/store";
-import { OrgName } from "../types/appEnums";
+
+const organizations = ["ecorp", "fsociety"];
 
 const SelectOrganization = () => {
   const setOrgName = useStore((state) => state.setOrgName);
   const orgName = useStore((state) => state.orgName);
   return (
     <>
-      <form>
-        <input
-          checked={orgName === OrgName.ECORP}
-          type="radio"
-          id={OrgName.ECORP}
-          name="orgName"
-          value={OrgName.ECORP}
-          onChange={(e) => {
-            localStorage.setItem("orgName", e.target.value);
-            setOrgName(e.target.value);
-          }}
-        />
-          <label htmlFor={OrgName.ECORP}>{OrgName.ECORP}</label> {" "}
-        <input
-          checked={orgName === OrgName.FSOCIETY}
-          type="radio"
-          id={OrgName.FSOCIETY}
-          name="orgName"
-          value={OrgName.FSOCIETY}
-          onChange={(e) => {
-            localStorage.setItem("orgName", e.target.value);
-            setOrgName(e.target.value);
-          }}
-        />
-          <label htmlFor={OrgName.FSOCIETY}>{OrgName.FSOCIETY}</label> 
+      <form className="select-organization">
+        {organizations.map((organization) => (
+          <div key={organization}>
+            <input
+              checked={orgName === organization}
+              type="radio"
+              id={organization}
+              data-testid={`radio-button-${organization}`}
+              name="orgName"
+              value={organization}
+              onChange={(e) => {
+                localStorage.setItem("orgName", e.target.value);
+                setOrgName?.(e.target.value);
+              }}
+            />
+             {" "}
+            <label className="radio-org-label" htmlFor={organization}>
+              {organization}
+            </label>
+          </div>
+        ))}
       </form>
     </>
   );

@@ -1,4 +1,4 @@
-import { Layout, Menu, Typography } from "antd";
+import { Divider, Layout, Menu, Typography } from "antd";
 import { Header, Content, Footer } from "antd/lib/layout/layout";
 import Members from "./pages/Members";
 import { NavLink, Route, Routes } from "react-router-dom";
@@ -14,19 +14,21 @@ const AppLayout = () => {
   return (
     <Layout className="layout">
       <Header>
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal">
-          <NavLink to="/">
-            <Menu.Item>Comments</Menu.Item>
-          </NavLink>
-          <NavLink to="/members">
-            <Menu.Item>Members</Menu.Item>
-          </NavLink>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+          <Menu.Item key="1">
+            <NavLink to="/">Comments</NavLink>
+          </Menu.Item>
+          <Menu.Item key="2">
+            <NavLink to="/members">Members</NavLink>
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>
-        <SelectOrganization />
-        <Title>{orgName.toUpperCase()}</Title>
+        <section className="text-center">
+          <SelectOrganization />
+          <Title>{orgName?.toUpperCase()}</Title>
+        </section>
+        <Divider />
         <Routes>
           <Route path="/" element={<Comments />} />
           <Route path="members" element={<Members />} />
@@ -35,7 +37,7 @@ const AppLayout = () => {
       </Content>
       <Footer style={{ textAlign: "center" }}>
         <p>Mpilo's Assessment styled using</p>
-        Ant Design ©2018 Created by Ant UED
+        <p>Ant Design ©2018 Created by Ant UED</p>
       </Footer>
     </Layout>
   );

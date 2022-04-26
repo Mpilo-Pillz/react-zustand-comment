@@ -1,0 +1,93 @@
+[
+  {
+    "description": "    In order view Members\n    As an admin\n    I want to see all the members of an organisation",
+    "keyword": "Feature",
+    "name": "View Members",
+    "line": 1,
+    "id": "view-members",
+    "tags": [],
+    "uri": "members.feature",
+    "elements": [
+      {
+        "id": "view-members;see-members-for-fsociety",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "See members for FSOCIETY",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I visit dashboard on \"http://localhost:3000/members\"",
+            "result": {
+              "status": "passed",
+              "duration": 658000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I click the element with testid \"radio-button-fsociety\"",
+            "result": {
+              "status": "passed",
+              "duration": 295000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should see that \"member-list-item\" occurs at least once",
+            "result": {
+              "status": "passed",
+              "duration": 70000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "view-members;see-members-for-escorp",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "See members for ESCORP",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I visit dashboard on \"http://localhost:3000/members\"",
+            "result": {
+              "status": "passed",
+              "duration": 367000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 10,
+            "name": "I click the element with testid \"radio-button-ecorp\"",
+            "result": {
+              "status": "passed",
+              "duration": 313000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should see that \"member-list-item\" occurs at least once",
+            "result": {
+              "status": "passed",
+              "duration": 64000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
