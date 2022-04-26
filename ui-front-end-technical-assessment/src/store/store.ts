@@ -1,21 +1,21 @@
 import create from "zustand";
-import { Comment, Member, Organization } from "../types/types";
+import { AppState, Comment, Member } from "../types";
 
 export const apiUrl = "http://localhost:1337/orgs/";
 
-const initialState = {
-  comments: [] as Comment[],
-  members: [] as Member[],
+const initialState: AppState = {
+  comments: [],
+  members: [],
   orgName: localStorage.getItem("orgName")
-    ? (localStorage.getItem("orgName") as Organization)
-    : ("fsociety" as Organization),
+    ? localStorage.getItem("orgName")
+    : "fsociety",
 };
 
-const useStore = create<any>((set) => ({
+const useStore = create<AppState>((set) => ({
   ...initialState,
   setOrgName: (orgName: string) => set({ orgName }),
   setComments: (comments: Comment[]) =>
-    set((state: Comment[]) => ({
+    set((state) => ({
       ...state,
       comments,
     })),
@@ -38,9 +38,13 @@ const useStore = create<any>((set) => ({
       },
       body: JSON.stringify(body),
     });
+    set((state) => ({
+      ...state,
+      comments: [...state.comments, body],
+    }));
   },
   setMembers: (members: Member[]) =>
-    set((state: Member[]) => ({
+    set((state) => ({
       ...state,
       members,
     })),

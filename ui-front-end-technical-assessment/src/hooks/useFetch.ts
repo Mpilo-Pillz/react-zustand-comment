@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Member, Comment } from "../types/types";
 
 const useFetch = <T>(url: string) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [data, setData] = useState<T | Comment | Member | null>(null);
+  const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {

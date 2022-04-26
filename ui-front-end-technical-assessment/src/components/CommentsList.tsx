@@ -3,19 +3,21 @@ import Meta from "antd/lib/card/Meta";
 import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import useStore, { apiUrl } from "../store/store";
-import { Comment } from "../types/types";
+import { Comment } from "../types";
 import ErrorCard from "./Error";
 import ButtonInput from "./formComponents/ButtonInput";
 
 const CommentsList = () => {
   const orgName = useStore((state) => state.orgName);
-  const { data, isLoading, error } = useFetch(`${apiUrl}${orgName}/comments`);
+  const { data, isLoading, error } = useFetch<Comment[]>(
+    `${apiUrl}${orgName}/comments`
+  );
   const comments = useStore((state) => state.comments);
   const setComments = useStore((state) => state.setComments);
   const deleteComments = useStore((state) => state.deleteComments);
 
   useEffect(() => {
-    setComments(data);
+    data !== null && setComments?.(data);
   }, [orgName, deleteComments, data]);
   return (
     <>
@@ -46,7 +48,7 @@ const CommentsList = () => {
             dataTestId={`delete-all-comments`}
             buttonClass="btn-outline"
             handleClick={() => {
-              deleteComments(`${orgName}/comments`);
+              deleteComments?.(`${orgName}/comments`);
             }}
           />
 

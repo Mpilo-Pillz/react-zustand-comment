@@ -2,7 +2,7 @@ import { Divider, Skeleton } from "antd";
 import { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import useStore, { apiUrl } from "../store/store";
-import { Member } from "../types/types";
+import { Member } from "../types";
 import ErrorCard from "./Error";
 import MemberCard from "./MemberCard";
 
@@ -10,10 +10,12 @@ const MembersLists = () => {
   const members = useStore((state) => state.members);
   const setMembers = useStore((state) => state.setMembers);
   const orgName = useStore((state) => state.orgName);
-  const { data, isLoading, error } = useFetch(`${apiUrl}${orgName}/members`);
+  const { data, isLoading, error } = useFetch<Member[]>(
+    `${apiUrl}${orgName}/members`
+  );
 
   useEffect(() => {
-    setMembers(data);
+    data !== null && setMembers?.(data);
   }, [orgName, data]);
 
   return (

@@ -1,4 +1,5 @@
 import { Formik, Form } from "formik";
+import { FormValues } from "../types";
 import ButtonInput from "./formComponents/ButtonInput";
 import useAddComment from "./formComponents/formHooks/useAddComment";
 import TextInput from "./formComponents/TextInput";
@@ -7,13 +8,10 @@ const AddComment = () => {
   const { initialValues, validationSchema, handleSubmit } = useAddComment();
 
   return (
-    <Formik
+    <Formik<FormValues>
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={(values, { resetForm }) => {
-        handleSubmit(values);
-        resetForm({});
-      }}
+      onSubmit={handleSubmit}
     >
       {(formikProps) => {
         return (

@@ -23,7 +23,7 @@
             "name": "I visit dashboard on \"http://localhost:3000/members\"",
             "result": {
               "status": "passed",
-              "duration": 468000000
+              "duration": 658000000
             }
           },
           {
@@ -33,7 +33,7 @@
             "name": "I click the element with testid \"radio-button-fsociety\"",
             "result": {
               "status": "passed",
-              "duration": 302000000
+              "duration": 295000000
             }
           },
           {
@@ -43,7 +43,7 @@
             "name": "I should see that \"member-list-item\" occurs at least once",
             "result": {
               "status": "passed",
-              "duration": 76000000
+              "duration": 70000000
             }
           }
         ]
@@ -63,7 +63,7 @@
             "name": "I visit dashboard on \"http://localhost:3000/members\"",
             "result": {
               "status": "passed",
-              "duration": 314000000
+              "duration": 367000000
             }
           },
           {
@@ -73,7 +73,7 @@
             "name": "I click the element with testid \"radio-button-ecorp\"",
             "result": {
               "status": "passed",
-              "duration": 305000000
+              "duration": 313000000
             }
           },
           {
@@ -83,7 +83,7 @@
             "name": "I should see that \"member-list-item\" occurs at least once",
             "result": {
               "status": "passed",
-              "duration": 104000000
+              "duration": 64000000
             }
           }
         ]

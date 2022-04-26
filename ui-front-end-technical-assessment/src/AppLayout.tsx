@@ -14,21 +14,19 @@ const AppLayout = () => {
   return (
     <Layout className="layout">
       <Header>
-        <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
             <NavLink to="/">Comments</NavLink>
           </Menu.Item>
           <Menu.Item key="2">
-            <NavLink to="/members"></NavLink>
-            Members
+            <NavLink to="/members">Members</NavLink>
           </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>
         <section className="text-center">
           <SelectOrganization />
-          <Title>{orgName.toUpperCase()}</Title>
+          <Title>{orgName?.toUpperCase()}</Title>
         </section>
         <Divider />
         <Routes>
@@ -39,7 +37,7 @@ const AppLayout = () => {
       </Content>
       <Footer style={{ textAlign: "center" }}>
         <p>Mpilo's Assessment styled using</p>
-        Ant Design ©2018 Created by Ant UED
+        <p>Ant Design ©2018 Created by Ant UED</p>
       </Footer>
     </Layout>
   );
