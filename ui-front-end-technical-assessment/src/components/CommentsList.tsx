@@ -41,16 +41,18 @@ const CommentsList = () => {
       {error && <ErrorCard errorParagraph="Error getting comments" />}
       {comments && (
         <section className="section-comments">
-          <ButtonInput
-            buttonText="Delete All Comments"
-            isDisabled={false}
-            buttonType="button"
-            dataTestId={`delete-all-comments`}
-            buttonClass="btn-outline"
-            handleClick={() => {
-              deleteComments?.(`${orgName}/comments`);
-            }}
-          />
+          {comments.length > 0 && (
+            <ButtonInput
+              buttonText="Delete All Comments"
+              isDisabled={false}
+              buttonType="button"
+              dataTestId={`delete-all-comments`}
+              buttonClass="btn-outline"
+              handleClick={() => {
+                deleteComments?.(`${orgName}/comments`);
+              }}
+            />
+          )}
 
           <List
             data-testid="comments-list-item"
